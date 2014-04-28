@@ -150,5 +150,5 @@ def query(jenni, input):
     except KeyError:
         notify(jenni, input.nick, "Unknown response from API server")
 
-query.rule = r'.*spotify:(.*?)\)$'
+query.rule = r'.*spotify:(.*?)[)]*$'
 query.priority = 'low'
