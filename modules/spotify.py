@@ -130,6 +130,7 @@ def query(jenni, input):
     spotify = Spotify()
     result = None
     lookup = input.group(1).lstrip().rstrip()
+    jenni.say(lookup)
     try:
         result = spotify.lookup('spotify:%s' % lookup)
     except:
