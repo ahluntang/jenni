@@ -129,10 +129,9 @@ def print_track(jenni, track):
 def query(jenni, input):
     spotify = Spotify()
     result = None
-    lookup = input.group(1).lstrip().rstrip().replace('(', '').replace(')', '')
+    lookup = input.group(1).lstrip().rstrip()
     try:
         result = spotify.lookup('spotify:%s' % lookup)
-        notify(jenni, input.nick, result)
     except:
         e = sys.exc_info()[0]
         notify(jenni, input.nick, e)
@@ -150,5 +149,5 @@ def query(jenni, input):
     except KeyError:
         notify(jenni, input.nick, "Unknown response from API server")
 
-query.rule = r'.*spotify:(.*)$'
+query.rule = r'.*spotify:(.*[^)])$'
 query.priority = 'low'
