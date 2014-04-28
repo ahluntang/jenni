@@ -129,8 +129,8 @@ def print_track(jenni, track):
 def query(jenni, input):
     spotify = Spotify()
     result = None
-    notify(jenni, input.nick, input.group(1).lstrip().rstrip().translate(string.maketrans("", "", ), '(){}<>'))
-    lookup = input.group(1).lstrip().rstrip().translate(string.maketrans("", "", ), '(){}<>')
+    notify(jenni, input.nick, input.group(1).lstrip().rstrip().join(c for c in name if c not in '(){}<>') )
+    lookup = input.group(1).lstrip().rstrip().join(c for c in name if c not in '(){}<>')
     try:
         result = spotify.lookup('spotify:%s' % lookup)
     except:
