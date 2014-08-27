@@ -448,7 +448,7 @@ def show_title_auto(jenni, input):
                 if input.sender in simple_channels:
                     response = special_format % (returned_title)
                 else:
-                    response = reg_format % (returned_title, getTLD(orig))
+                    response = reg_format % (returned_title, orig)
         elif len(orig) > BITLY_TRIGGER_LEN_NOTITLE:
             if useBitLy and bitly_link != orig:
                 #response = '%s' % (bitly_link)
